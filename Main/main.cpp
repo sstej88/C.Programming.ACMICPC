@@ -1,7 +1,8 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Main Default Function
+ * Topic: 
+ * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
  * Unordered Associative Containers: Unordered Map, Unordered Set, Unordered Multimap, Unordered Multiset
@@ -16,8 +17,9 @@
 #define RUN_LOCAL
 using namespace std;
 
-inline int pow(int a, int b) {
-    int x = 1;
+template<typename T>
+inline T pow(T a, T b) {
+    T x = 1;
     while(b) {
         if(b&1) x*=a;
         a*=a;
@@ -28,15 +30,12 @@ inline int pow(int a, int b) {
 
 vector<int> solve() {
     vector<int> r;
-
-    r.push_back(10);
-    r.push_back(30);
-    r.push_back(40);
     
     return r;
 }
 
 int32_t main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);cerr.tie(0);
     clock_t initialTime = clock();
     #ifdef RUN_LOCAL
         freopen("../io/input.txt", "r", stdin);
