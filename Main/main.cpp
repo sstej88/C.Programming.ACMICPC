@@ -28,6 +28,11 @@ inline T pow(T a, T b) {
     return x;
 }
 
+template<typename T>
+T bug(T x) {
+    cout<<"Bug: "<<x<<endl;
+}
+
 vector<int> solve() {
     vector<int> r;
     
