@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: 
+ * Topic: Special Time Compelxity O(n)
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -35,7 +35,15 @@ T bug(T x) {
 
 vector<int> solve() {
     vector<int> r;
-    
+    int count = 0;
+    int n;
+    cin>>n;
+    for(int i=n; i>0; i/=2) {
+        for(int j=i; j>0; j--) {
+            count++;
+        }
+    }
+    cout<<count<<endl;
     return r;
 }
 
