@@ -1,2 +1,4 @@
-No Cycles Found
+Displaying Set: 
+9 10 5 12 3 4 40 
+Found 5 in set
 
