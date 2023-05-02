@@ -1,6 +1,7 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "files.associations": {
-        "queue": "cpp"
+        "queue": "cpp",
+        "list": "cpp"
     }
 }
