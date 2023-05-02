@@ -1,14 +1,7 @@
-Size of vector : 9 and capacity: 16
-Displaying Vector: 
-23 13 25 40 60 50 30 20 10 
-Size of vector : 9 and capacity: 100
-Displaying Vector: 
-23 13 25 40 60 50 30 20 10 
-Displaying Vector: 
-6 5 4 3 2 1 
-Displaying Vector: 
-6 6 6 6 
-Displaying Vector: 
-23 13 25 40 60 30 20 10 
+Displaying Priority Queue Max Heap: 
+50 45 30 25 22 21 20 10 
+Displaying Priority Queue Min Heap: 
+10 20 21 22 25 30 45 50 
+Displaying Priority Queue Custom Heap: 
+30 20 10 51 45 25 21 22 
 
-10 20 30 60 40 25 13 23 

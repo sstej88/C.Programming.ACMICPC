@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: 
+ * Topic: STL Hash Tables
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -33,61 +33,10 @@ T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
-void insert(vector<int> &v) {
-    // Uses dynamic memory allocation
-
-    v.push_back(10);
-    v.push_back(20);
-    v.push_back(30);
-    v.push_back(50);
-    v.push_back(60);
-    v.push_back(40);
-    v.push_back(25);
-    v.push_back(13);
-    v.push_back(23);
-}
-
-void checkSize(vector<int> &v) { // Capacity cannot be printed if passed by value. When passed by value, unallocated places are not passed.
-    cout<<"Size of vector : "<<v.size()<<" and capacity: "<<v.capacity()<<endl;
-}
-
-void display(vector<int> v) {
-    cout<<"Displaying Vector: "<<endl;
-    while(!v.empty()) {
-        cout<<v.back()<<" ";
-        v.pop_back();
-    }
-    cout<<endl;
-}
-
 vector<int> solve() {
-    vector<int> v;
-
-    insert(v);
-    checkSize(v);
-
-    display(v);
-
-    vector<int> v1;
-    v1.reserve(100);
-    insert(v1);
-    checkSize(v1);
-    display(v1);
-
-    array<int, 6> arr = {1, 2, 3, 4, 5, 6};
-    vector<int> v2(arr.begin(), arr.end());
-    display(v2);
-
-    vector<int> v3(4, 6);
-    display(v3);
-
-    //clear method will remove all elements in a vector. However, capacity remains same. Size becomes zero as usual.
-    // erasing 4th element. erase takes location of number to be erased as input.
-
-    v.erase(v.begin()+3);
-    display(v);
-
-    return v;
+    vector<int> r;
+    
+    return r;
 }
 
 int32_t main() {
@@ -102,7 +51,6 @@ int32_t main() {
     cin>>test;
     while(test--) {
         vector<int> result = solve();
-        cout<<endl;
         for(auto x: result) {
             cout<<x<<" ";
         }

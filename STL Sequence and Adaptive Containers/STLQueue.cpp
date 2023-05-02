@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: 
+ * Topic: STL Queue
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -33,43 +33,30 @@ T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
-void display(const array<int, 6> arr) { // Here const is used because this function need not change the values in an array.
-    cout<<"Displaying array"<<endl;
-    for(int i=0; i< arr.size(); i++) {
-        cout<<arr.at(i)<<" ";
-    }
-    cout<<endl;
+void insert(queue<int> &q) {
+    q.push(1);
+    q.push(2);
+    q.push(4);
+    q.push(3);
+    q.push(6);
+    q.push(65);
 }
 
-void update(array<int, 6> &pArr, int index, int data) { // here pArr is reference variable. So actual array will be changed.
-    pArr.at(index) = data;
+void display(queue<int> q) {
+    cout<<"Displaying Queue: "<<endl;
+    while(!q.empty()) {
+        cout<<q.front()<<" ";
+        q.pop();
+    }
+    cout<<endl;
 }
 
 vector<int> solve() {
     vector<int> r;
     
-    array<int, 6> arr = {1, 2, 3, 4, 5, 6};
-    display(arr); // array is passed by value.
-
-    update(arr, 3, 12); // array is updated because it is passed as reference.
-    display(arr);
-
-    // Since we are passing entire array object, array size need not be defined in main and sent to function.
-
-    // Iterators uses arr.begin() and arr.end() which gives starting address and ending address.
-
-    sort(arr.begin(), arr.end());
-    display(arr);
-
-    array<int, 6> arrFill;
-    arrFill.fill(5);
-    display(arrFill);
-
-    cout<<"Displaying array through for each loop"<<endl;
-    for(auto x: arr) {
-        cout<<x<<" ";
-    }
-    cout<<endl;
+    queue<int> q;
+    insert(q);
+    display(q);
 
     return r;
 }
