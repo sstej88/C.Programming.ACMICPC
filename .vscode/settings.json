@@ -3,6 +3,8 @@
     "files.associations": {
         "queue": "cpp",
         "list": "cpp",
-        "ctime": "cpp"
+        "ctime": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp"
     }
 }

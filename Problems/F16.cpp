@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: 
+ * Topic: Two Sum LC
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -10,7 +10,6 @@
 */
 
 #include<bits/stdc++.h>
-#include<unordered_set>
 #include<ctime>
 #define int long long int
 #define double long double
@@ -34,38 +33,37 @@ T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
-void add(unordered_set<int> &s) {
-    s.insert(9);
-    s.insert(10);
-    s.insert(12);
-    s.insert(5);
-    s.insert(3);
-    s.insert(4);
-    s.insert(40);
-}
+vector<int> twoSum(vector<int>& nums, int target) {
+    vector<int> result;
+    result.reserve(2);
 
-void show(unordered_set<int> s) {
-    cout<<"Displaying Set: "<<endl;
+    unordered_map<int, int> ump;
+    unordered_map<int, vector<int> > indices;
 
-    for(unordered_set<int>::iterator it = s.begin(); it!=s.end(); it++) {
-        cout<<*it<<" ";
+    int index = 0;
+    for(auto x: nums) {
+        indices[x].push_back(index);
+        index++;
     }
 
-    cout<<endl;
-}
-
-vector<int> solve() {
-    vector<int> r;
-    
-    unordered_set<int> s;
-    add(s);
-    show(s);
-
-    if(s.find(5)!=s.end()) {
-        cout<<"Found 5 in set"<<endl;
+    for(auto x: nums) {
+        if(ump.count(target-x)) {
+            if(x!=(target-x)) {
+                result.push_back(indices[x].at(0));
+                result.push_back(indices[target-x].at(0));
+            }
+            else {
+                result.push_back(indices[x].at(0));
+                result.push_back(indices[x].at(1));
+            }
+            break;
+        }
+        else {
+            ump[x] = target-x;
+        }
     }
 
-    return r;
+    return result;
 }
 
 int32_t main() {
@@ -79,7 +77,17 @@ int32_t main() {
     int test = 1;
     cin>>test;
     while(test--) {
-        vector<int> result = solve();
+
+        int n, e, target;
+        vector<int> nums;
+        cin>>n;
+        while(n--) {
+            cin>>e;
+            nums.push_back(e);
+        }
+        cin>>target;
+
+        vector<int> result = twoSum(nums, target);
         for(auto x: result) {
             cout<<x<<" ";
         }
