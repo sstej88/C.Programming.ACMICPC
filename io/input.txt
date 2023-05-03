@@ -1,4 +1,4 @@
-3
-aabb
-codingminutes
-hh
+1
+
+7
+3 1 6 0 5 1 4
