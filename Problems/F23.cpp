@@ -33,14 +33,13 @@ T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
-void swap(vector<int> &arr, int i, int j) {
+void swap(vector<int>& arr, int i, int j) {
     int temp = arr.at(i);
     arr.at(i) = arr.at(j);
     arr.at(j) = temp;
 }
 
-void quicksort(vector<int> &arr, int left, int right) {
-    if(left<right) {
+int quickSelect(vector<int>& arr, int left, int right, int k) {
         int pivot = arr.at(right);
         int pointer = left;
         int greater = left;
@@ -61,14 +60,21 @@ void quicksort(vector<int> &arr, int left, int right) {
         if(arr.at(pointer)>arr.at(right)){
             swap(arr, pointer, right);
         }
-        quicksort(arr, left, pointer-1);
-        if(pointer!=right) {
-            quicksort(arr, pointer+1, right);
+        if(pointer==arr.size()-k) {
+            return arr.at(pointer);
         }
-    }
-    else {
-        return;
-    }
+        else if(pointer>arr.size()-k) {
+            return quickSelect(arr, left, pointer-1, k);
+        }
+        else { // if(pointer<arr.size()-k)
+            // if(pointer!=right) {
+                    return quickSelect(arr, pointer+1, right, k);
+            // }
+        }
+}
+
+int findKthLargest(vector<int>& nums, int k) {
+    return quickSelect(nums, 0, nums.size()-1, k);
 }
 
 int32_t main() {
@@ -82,18 +88,17 @@ int32_t main() {
     int test = 1;
     cin>>test;
     while(test--) {
-        int n, e;
-        vector<int> arr;
+        vector<int> nums;
+        int n, e, k;
         cin>>n;
         while(n--) {
             cin>>e;
-            arr.push_back(e);
+            nums.push_back(e);
         }
-        quicksort(arr, 0, arr.size()-1);
-        for(auto x: arr) {
-            cout<<x<<" ";
-        }
-        cout<<endl;
+        cin>>k;
+        int result = findKthLargest(nums, k);
+        cout<<result<<endl;
     }
     cerr<<((double)clock()-initialTime)/CLOCKS_PER_SEC<<endl;
+    return 0;
 }

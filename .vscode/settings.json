@@ -6,6 +6,7 @@
         "ctime": "cpp",
         "unordered_set": "cpp",
         "vector": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "iostream": "cpp"
     }
 }
