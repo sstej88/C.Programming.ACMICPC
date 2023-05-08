@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: 
+ * Topic: Clear Last Bits
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -47,7 +47,7 @@ vector<int> solve() {
     int mask = (-1)<<i;
     n&=mask;
     r.push_back(n);
-    
+
     return r;
 }
 
