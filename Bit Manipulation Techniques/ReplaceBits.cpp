@@ -42,7 +42,22 @@ T bug(T x) {
 vector<int> solve() {
     vector<int> r;
 
-    
+    int n, m, i, j;
+    cin>>n>>m>>i>>j;
+    if(i<=j) {
+        int subMask1 = -1<<(j+1);
+        int subMask2 = ~(-1<<i);
+        int mask = subMask1|subMask2;
+        n&=mask;
+
+        mask = ~mask;
+        m&=mask;
+
+        r.push_back((n|m));
+    }
+    else {
+        r.push_back(n);
+    }
 
     return r;
 }
