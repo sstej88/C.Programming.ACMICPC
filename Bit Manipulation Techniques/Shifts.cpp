@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Special Time Compelxity O(n)
+ * Topic: Left Shift and Right Shift
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -29,27 +29,21 @@ inline T pow(T a, T b) {
 }
 
 template<typename T>
-inline T isEven(T a) {
-    if(a&1) return false;
-    else return true;
-}
-
-template<typename T>
 T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
 vector<int> solve() {
     vector<int> r;
-    int count = 0;
-    int n;
-    cin>>n;
-    for(int i=n; i>0; i/=2) {
-        for(int j=i; j>0; j--) {
-            count++;
-        }
-    }
-    cout<<count<<endl;
+
+    int a, b;
+    a = 5;
+    b = 2;
+    a = a<<b;
+    cout<<a<<endl;
+    a = a>>3;
+    cout<<a<<endl;
+    
     return r;
 }
 

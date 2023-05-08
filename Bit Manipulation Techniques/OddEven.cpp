@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Special Time Compelxity O(n)
+ * Topic: Checking Even and Odd Number - Updating Snippet
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -41,15 +41,11 @@ T bug(T x) {
 
 vector<int> solve() {
     vector<int> r;
-    int count = 0;
-    int n;
-    cin>>n;
-    for(int i=n; i>0; i/=2) {
-        for(int j=i; j>0; j--) {
-            count++;
-        }
-    }
-    cout<<count<<endl;
+    cout<<isEven(2)<<endl;
+    cout<<isEven(3)<<endl;
+    cout<<isEven(5)<<endl;
+    cout<<isEven(60)<<endl;
+    cout<<isEven(990)<<endl;
     return r;
 }
 
