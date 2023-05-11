@@ -130,7 +130,7 @@ inline string multiply(string num1, string num2) {
 vector<string> solve() {
     vector<string> r;
 
-    string a = "10";
+    string a = "13";
     string result = a;
     for(string i="1"; i!=a; i = addStrings(i, "1")) {
         result = multiply(result, i);
