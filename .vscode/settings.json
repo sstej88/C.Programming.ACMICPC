@@ -10,6 +10,7 @@
         "iostream": "cpp",
         "ios": "cpp",
         "map": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "string": "cpp"
     }
 }
