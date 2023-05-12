@@ -18,7 +18,6 @@
 using namespace std;
 
 const int mod = 1e9+7;
-// Whenever you do a mod operation with this mod, the resultant value will be always less than 1e18+9 which is a maximum value a long long int can store.
 
 template<typename T>
 inline T pow(T a, T b) {
@@ -26,6 +25,17 @@ inline T pow(T a, T b) {
     while(b) {
         if(b&1) x*=a; x = x%mod;
         a*=a; a = a%mod;
+        b>>=1;
+    }
+    return x;
+}
+
+template<typename T>
+inline T fastMultiplication(T a, T b) {
+    T x = 0;
+    while(b) {
+        if(b&1) x+=a; x = x%mod;
+        a+=a; a = a%mod;
         b>>=1;
     }
     return x;
