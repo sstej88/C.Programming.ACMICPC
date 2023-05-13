@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Modular Binary Exponentiation and Fast Multiplication
+ * Topic: Matrix Exponentiation
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -61,8 +61,7 @@ T bug(T x) {
 vector<int> solve() {
     vector<int> r;
 
-    int re = pow(2, 50);
-    r.push_back(re);
+    
 
     return r;
 }
