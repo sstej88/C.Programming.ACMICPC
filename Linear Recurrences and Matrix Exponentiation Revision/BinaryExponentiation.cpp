@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Grays Codes are something which numbers in sequence such that a[n] will differ by 1 bit position than a[n-1]
+ * Topic: Binary Exponentiation
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -19,15 +19,27 @@ using namespace std;
 
 const int mod = 1e9+7;
 
-template<typename T>
-inline T pow(T a, T b) {
-    T x = 1;
+template<typename D, typename I>
+inline D binaryExponentiation(D a, I b) {
+    D r = 1;
     while(b) {
-        if(b&1) x*=a; x = x%mod;
-        a*=a; a = a%mod;
-        b>>=1;
+        if(b&1) r*=a;
+        a*=a;
+        b = b>>1;
     }
-    return x;
+    return r;
+}
+
+template<typename D, typename I>
+inline D binaryPower(D a, I b) { // Binary Exponentiation
+    if(b>=0) {
+        return binaryExponentiation(a, b);
+    }
+    else {
+        b = -b;
+        double r = binaryExponentiation(a, b);
+        return 1/r;
+    }
 }
 
 template<typename T>
@@ -58,38 +70,13 @@ T bug(T x) {
     cout<<"Bug: "<<x<<endl;
 }
 
-bool graySimilarCode(vector<int> &arr) {
-    if(arr.size()>=130) {
-        return true; // Came from Pigeon Hole Principle
-    }
-    else { // It only runs if size is <130, that means O(n^4) == O(10^8) which is acceptable
-        for(int i=0; i<arr.size(); i++) {
-            for(int j=i+1; j<arr.size(); j++) {
-                for(int k=j+1; k<arr.size(); k++) {
-                    for(int l=k+1; l<arr.size(); l++) {
-                        if(arr.at(i)^arr.at(j)^arr.at(k)^arr.at(l) == 0) {
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-}
-
 vector<int> solve() {
     vector<int> r;
 
-    int n, e;
-    cin>>n;
-    vector<int> arr;
-    while(n--) {
-        cin>>e;
-        arr.push_back(e);
-    }
-
-    cout<<graySimilarCode(arr)<<endl;
+    double a;
+    int b;
+    cin>>a>>b;
+    cout<<binaryPower(a, b)<<endl;
 
     return r;
 }
