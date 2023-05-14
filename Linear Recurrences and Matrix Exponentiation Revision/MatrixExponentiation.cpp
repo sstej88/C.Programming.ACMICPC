@@ -132,10 +132,11 @@ int fibanocci(int n) {
         if(n&1) {
             r = r*a;
         }
+        a = a*a;
         n>>=1;
     }
 
-    return r.mat[0][0];
+    return (r.mat[0][0]+r.mat[0][1])%mod;
 }
 
 vector<int> solve() {
