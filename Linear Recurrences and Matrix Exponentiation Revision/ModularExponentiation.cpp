@@ -17,8 +17,8 @@
 #define RUN_LOCAL
 using namespace std;
 
-const int shortMod = 1e9+7;
-const int mod = 9e18+7;
+const int mod = 1e9+7;
+// Why are we maintaining every value less than 1e+7 although we have a space till 1e18? When we are multiplying 2 numbers of 1e9+7, then they can get stored in 1e18.
 
 template<typename D, typename I>
 inline D binaryExponentiation(D a, I b) {
@@ -74,8 +74,7 @@ T bug(T x) {
 vector<int> solve() {
     vector<int> r;
 
-    int x;
-    int n;
+    int x, n;
     cin>>x>>n;
     cout<<powExponentiation(x, n)<<endl;
 
