@@ -139,55 +139,20 @@ int fibonacci(int n) {
     return (r.mat[0][0]+r.mat[0][1])%mod;
 }
 
-vector<int> solve() {
-    vector<int> r;
-    vector<int> nums;
+int subarraysDivByK(vector<int>& nums, int k) {
+    vector<int> remainders(k);
 
-    int n;
-    cin>>n;
-    while(n) {
-        int e;
-        cin>>e;
-        nums.push_back(e);
-        n--;
+    cout<<endl;
+    remainders[0] = 1;
+    int prefix = 0;
+    int ans = 0;
+    
+    for (int num : nums) {
+        prefix = ((prefix + num % k) + k) % k;
+        ans += remainders[prefix]++;
     }
-
-    if(nums.size()>=130) return true; // Came from pigeon hole principle
-    else {
-        // Doing Operations required. Uses O(n^3) technique        
-        
-        #include <iostream>
-        using namespace std;
-        
-        int main()
-        {
-            int n;
-            cin >> n;
-            int arr[n][n];
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    cin >> arr[i][j];
-                }
-            }
-            int sum = 0;
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    for (int k = 0; k < n; k++)
-                    {
-                        sum += arr[i][j] * arr[j][k];
-                    }
-                }
-            }
-            cout << sum << endl;
-            return 0;
-        }
-    }
-
-    return r;
+    
+    return ans;
 }
 
 int32_t main() {
@@ -201,11 +166,16 @@ int32_t main() {
     int test = 1;
     cin>>test;
     while(test--) {
-        vector<int> result = solve();
-        for(auto x: result) {
-            cout<<x<<" ";
+        vector<int> arr;
+        int n, k, e;
+        cin>>n;
+        while(n) {
+            cin>>e;
+            arr.push_back(e);
+            n--;
         }
-        cout<<endl;
+        cin>>k;
+        cout<<subarraysDivByK(arr, k)<<endl;
     }
     cerr<<((double)clock()-initialTime)/CLOCKS_PER_SEC<<endl;
 }
