@@ -1,7 +1,7 @@
 /*
  * ACM ICPC preparation
  * Author: Sai Tej Sunkara
- * Topic: Prime Sieve Algorithm of Erathosthenes
+ * Topic: Prime Sieve Algorithm of Eratosthenes
  * 
  * Sequence Containers: Arrays, Vectors, Deque, Forward List, List
  * Associative Containers: Map, Set, Multimap, Multiset
@@ -162,8 +162,8 @@ int fibonacci(int n) {
 vector<int> solve() {
     vector<int> r;
 
-    vector<bool> primes = primeSieve(100);
-    for(int i=0; i<100; i++) {
+    vector<bool> primes = primeSieve(N);
+    for(int i=0; i<=N; i++) {
         if(primes[i]) {
             cout<<i<<" ";
         }
