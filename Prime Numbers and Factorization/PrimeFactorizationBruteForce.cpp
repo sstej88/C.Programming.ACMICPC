@@ -165,13 +165,17 @@ vector<int> solve() {
     int n, bck;
     cin>>n;
     bck = n;
-    for(int i=2; i<=bck && n!=1; i++) {
+    for(int i=2; i*i<=bck && n!=1; i++) {
         int count = 0;
         while(n%i==0) {
             n = n/i;
             count++;
         }
         if(count) cout<<i<<" - "<<count<<endl;
+    }
+
+    if(n!=1) {
+        cout<<n<<" - "<<1<<endl;
     }
 
     return r;
