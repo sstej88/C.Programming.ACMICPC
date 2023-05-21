@@ -171,7 +171,7 @@ vector<int> solve() {
             n = n/i;
             count++;
         }
-        cout<<i<<" - "<<count<<endl;
+        if(count) cout<<i<<" - "<<count<<endl;
     }
 
     return r;
