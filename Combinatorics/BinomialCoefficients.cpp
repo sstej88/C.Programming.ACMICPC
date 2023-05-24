@@ -196,7 +196,7 @@ T binomialCoefficient(T a, T b) {
 vector<int> solve() {
     vector<int> r;
 
-    cout<<binomialCoefficient(5, 1)<<endl;
+    cout<<binomialCoefficient(5, 3)<<endl;
 
     return r;
 }
