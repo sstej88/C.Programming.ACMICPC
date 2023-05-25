@@ -193,29 +193,17 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-bool isArraySorted(vector<int> arr) {
-    if(!arr.empty()) {
-        int val = arr.back();
-        arr.pop_back();
-        return val>=arr.back() && isArraySorted(arr);
+double power(double num, double n) {
+    if(n==0) {
+        return 1;
     }
-    else {
-        return true;
-    }
+    return num*power(num, --n);
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    vector<int> arr;
-    int n, e;
-    cin>>n;
-    while(n--) {
-        cin>>e;
-        arr.push_back(e);
-    }
-
-    cout<<isArraySorted(arr);
+    cout<<power(2, 10)<<endl;
 
     return r;
 }
