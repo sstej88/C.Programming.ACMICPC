@@ -194,9 +194,10 @@ T binomialCoefficient(T a, T b) {
 }
 
 int fibonacciRecursion(int n) {
-    if(n==0) return 0;
-    if(n==1) return 1;
-    return fibonacciRecursion(n-1)+fibonacciRecursion(n-2);
+    if(n<0) return -1; // solution doesn't exist
+    if(n==0) return 0; // atom case
+    if(n==1) return 1; // atom case
+    return fibonacciRecursion(n-1)+fibonacciRecursion(n-2); // recursive case
 }
 
 vector<int> solve() {
