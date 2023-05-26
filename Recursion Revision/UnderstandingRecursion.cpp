@@ -193,31 +193,34 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-bool checkArraySort(vector<int> vec) {
-    bool isArraySorted = false;
-    if(vec.size()==2) {
-        return true;
+void increase(int n) {
+    if(n==0) {
+        return;
     }
     else {
-        isArraySorted = vec.at(vec.size()-1)>vec.at(vec.size()-2);
-        vec.pop_back();
-        return isArraySorted and checkArraySort(vec);
+        increase(n-1);
+        cout<<n<<" ";
+    }
+}
+
+void decrease(int n) {
+    if(n==0) {
+        return;
+    }
+    else {
+        cout<<n<<" ";
+        decrease(n-1);
     }
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    int n, e;
-    vector<int> vec;
+    int n;
     cin>>n;
-    while(n) {
-        int e;
-        cin>>e;
-        vec.push_back(e);
-        n--;
-    }
-    cout<<checkArraySort(vec)<<endl;
+    decrease(n);
+    cout<<endl;
+    increase(n);
 
     return r;
 }
