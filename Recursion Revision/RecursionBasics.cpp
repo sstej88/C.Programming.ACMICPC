@@ -193,18 +193,17 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-double power(double num, double n) {
-    if(n==0) {
-        return 1;
-    }
-    return num*power(num, --n);
+int factorial(int n) {
+    if(n==0) return 1;
+    return n*factorial(n-1);
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    cout<<power(2, 10)<<endl;
-    cout<<power(3, 5)<<endl;
+    r.push_back(factorial(5));
+    r.push_back(factorial(6));
+    r.push_back(factorial(0));
 
     return r;
 }
