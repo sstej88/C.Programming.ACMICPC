@@ -193,14 +193,18 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-int factorial(int n) {
+int fibonacciRecursion(int n) {
     int answer;
-    if(n==0) {
+    if(n==1) {
+        answer = 0;
+        return answer;
+    }
+    else if(n==2) {
         answer = 1;
         return answer;
     }
     else {
-        answer = n*factorial(n-1);
+        answer = fibonacciRecursion(n-1) + fibonacciRecursion(n-2);
         return answer;
     }
 }
@@ -208,9 +212,14 @@ int factorial(int n) {
 vector<int> solve() {
     vector<int> r;
 
-    r.push_back(factorial(5));
-    r.push_back(factorial(6));
-    r.push_back(factorial(0));
+    r.push_back(fibonacciRecursion(1));
+    r.push_back(fibonacciRecursion(2));
+    r.push_back(fibonacciRecursion(3));
+    r.push_back(fibonacciRecursion(4));
+    r.push_back(fibonacciRecursion(5));
+    r.push_back(fibonacciRecursion(6));
+    r.push_back(fibonacciRecursion(7));
+    r.push_back(fibonacciRecursion(8));
 
     return r;
 }

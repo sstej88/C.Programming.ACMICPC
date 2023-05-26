@@ -193,24 +193,31 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-int factorial(int n) {
-    int answer;
-    if(n==0) {
-        answer = 1;
-        return answer;
+bool checkArraySort(vector<int> vec) {
+    bool isArraySorted = false;
+    if(vec.size()==2) {
+        return true;
     }
     else {
-        answer = n*factorial(n-1);
-        return answer;
+        isArraySorted = vec.at(vec.size()-1)>vec.at(vec.size()-2);
+        vec.pop_back();
+        return isArraySorted&&checkArraySort(vec);
     }
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    r.push_back(factorial(5));
-    r.push_back(factorial(6));
-    r.push_back(factorial(0));
+    int n, e;
+    vector<int> vec;
+    cin>>n;
+    while(n) {
+        int e;
+        cin>>e;
+        vec.push_back(e);
+        n--;
+    }
+    cout<<checkArraySort(vec)<<endl;
 
     return r;
 }

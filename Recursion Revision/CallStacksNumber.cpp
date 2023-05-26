@@ -193,14 +193,18 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-int factorial(int n) {
+int callStackNumber(int n) {
     int answer;
-    if(n==0) {
+    if(n==1) {
+        answer = 1;
+        return answer;
+    }
+    else if(n==2) {
         answer = 1;
         return answer;
     }
     else {
-        answer = n*factorial(n-1);
+        answer = 1 + callStackNumber(n-1) + callStackNumber(n-2);
         return answer;
     }
 }
@@ -208,9 +212,9 @@ int factorial(int n) {
 vector<int> solve() {
     vector<int> r;
 
-    r.push_back(factorial(5));
-    r.push_back(factorial(6));
-    r.push_back(factorial(0));
+    // How many call stacks are used for computing fibonacci number?
+    // 5 - 4/3 | 4 - 3/2 / 3 - 2/1
+    r.push_back(callStackNumber(5));
 
     return r;
 }
