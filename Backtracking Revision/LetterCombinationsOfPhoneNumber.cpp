@@ -194,18 +194,29 @@ T binomialCoefficient(T a, T b) {
 }
 
 template<typename T>
-void findSubsets(T input, T output, int i, int j) { // Usually 0 and 0
-    if(i==input.length()) {
-        cout<<output<<endl;
+void swap(vector<T> &input, int i, int j) {
+    int temp = input.at(i);
+    input.at(i) = input.at(j);
+    input.at(j) = temp;
+}
+
+template<typename T>
+void permutations(vector<T> &input, vector<vector<T> > &output, int i) {
+    if(i==input.size()-1) {
+        output.push_back(input);
         return;
     }
     else {
-        findSubsets(input, output+input.at(i), i+1, j+1);
-        findSubsets(input, output, i+1, j);
+        for(int j=i; j<input.size(); j++) {
+            swap(input, i, j);
+            permutations(input, output, i+1);
+            swap(input, i, j);
+        }
     }
 }
 
-void subsets(vector<int> &input, vector<vector<int> > &output, vector<int> subset, int i) {
+template<typename T>
+void subsets(vector<T> &input, vector<vector<T> > &output, vector<T> subset, int i) {
     if(i==input.size()) {
         output.push_back(subset);
         return;
@@ -221,21 +232,8 @@ void subsets(vector<int> &input, vector<vector<int> > &output, vector<int> subse
 vector<int> solve() {
     vector<int> r;
 
-    vector<int> input, subset;
-    vector<vector<int> > output;
-    int i = 0, n, e;
-    cin>>n;
-    while(n--) {
-        cin>>e;
-        input.push_back(e);
-    }
-    subsets(input, output, subset, i);
-    for(auto x: output) {
-        for(auto y: x) {
-            cout<<y<<" ";
-        }
-        cout<<endl;
-    }
+    
+
     return r;
 }
 

@@ -205,37 +205,47 @@ void findSubsets(T input, T output, int i, int j) { // Usually 0 and 0
     }
 }
 
-void subsets(vector<int> &input, vector<vector<int> > &output, vector<int> subset, int i) {
-    if(i==input.size()) {
-        output.push_back(subset);
+void swap(vector<int> &input, int i, int j) {
+    int temp = input.at(i);
+    input.at(i) = input.at(j);
+    input.at(j) = temp;
+}
+
+void permutations(vector<int> &input, vector<vector<int> > &output, int i) {
+    if(i==input.size()-1) {
+        output.push_back(input);
         return;
     }
     else {
-        subset.push_back(input.at(i));
-        subsets(input, output, subset, i+1);
-        subset.pop_back(); // Backtracking
-        subsets(input, output, subset, i+1);
+        for(int j=i; j<input.size(); j++) {
+            swap(input, i, j);
+            permutations(input, output, i+1);
+            swap(input, i, j);
+        }
     }
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    vector<int> input, subset;
+    vector<int> input;
+    int n, e;
     vector<vector<int> > output;
-    int i = 0, n, e;
     cin>>n;
     while(n--) {
         cin>>e;
         input.push_back(e);
     }
-    subsets(input, output, subset, i);
+
+    permutations(input, output, 0);
+
     for(auto x: output) {
         for(auto y: x) {
             cout<<y<<" ";
         }
         cout<<endl;
     }
+
     return r;
 }
 

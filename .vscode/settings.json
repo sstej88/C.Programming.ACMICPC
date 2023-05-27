@@ -12,6 +12,7 @@
         "map": "cpp",
         "iosfwd": "cpp",
         "string": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "set": "cpp"
     }
 }
