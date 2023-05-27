@@ -11,6 +11,7 @@
         "ios": "cpp",
         "map": "cpp",
         "iosfwd": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "stack": "cpp"
     }
 }
