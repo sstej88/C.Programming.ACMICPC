@@ -193,23 +193,19 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-int power(int a, int n) {
-    if(n==0) {
-        return 1;
+int binaryStrings(int n) {
+    if(n==1) {
+        return 2;
     }
     else {
-        return a*power(a, n-1);
-    }
-}
-
-int fastPower(int a, int n) {
-    if(n==0) return 1;
-    if(n==1) return a;
-    int answer = fastPower(a, n/2)*fastPower(a, n/2);
-    if(n&1) {
-        return a*answer;
-    }
-    else {
+        int subProblem = binaryStrings(n-1);
+        int answer = 0;
+        if(subProblem&1) {
+            answer = subProblem+((subProblem/2)+1);
+        }
+        else {
+            answer = subProblem+(subProblem/2);
+        }
         return answer;
     }
 }
@@ -217,10 +213,9 @@ int fastPower(int a, int n) {
 vector<int> solve() {
     vector<int> r;
 
-    int a, n;
-    cin>>a>>n;
-    r.push_back(power(a, n));
-    r.push_back(fastPower(a, n));
+    int n;
+    cin>>n;
+    r.push_back(binaryStrings(n));
 
     return r;
 }

@@ -193,34 +193,19 @@ T binomialCoefficient(T a, T b) {
     }
 }
 
-int power(int a, int n) {
-    if(n==0) {
-        return 1;
-    }
+int pairs(int n) {
+    if(n<=1) return 1;
     else {
-        return a*power(a, n-1);
-    }
-}
-
-int fastPower(int a, int n) {
-    if(n==0) return 1;
-    if(n==1) return a;
-    int answer = fastPower(a, n/2)*fastPower(a, n/2);
-    if(n&1) {
-        return a*answer;
-    }
-    else {
-        return answer;
+        return 1*pairs(n-1)+(n-1)*pairs(n-2);
     }
 }
 
 vector<int> solve() {
     vector<int> r;
 
-    int a, n;
-    cin>>a>>n;
-    r.push_back(power(a, n));
-    r.push_back(fastPower(a, n));
+    int n;
+    cin>>n;
+    r.push_back(pairs(n));
 
     return r;
 }
