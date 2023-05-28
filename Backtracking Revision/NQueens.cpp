@@ -279,7 +279,9 @@ bool solveNQueens(vector<string> &board, int n, int i) {
                     if(nextRowOutput==false) {
                         board.at(i).at(j) = '.';
                     }
-                    return nextRowOutput;
+                    else {
+                        return true;
+                    }
                 }
             }
         }

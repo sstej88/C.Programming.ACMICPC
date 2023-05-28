@@ -178,6 +178,10 @@ vector<int> solve() {
         }
     }
 
+    for(auto x: primes) {
+        cout<<x<<" "<<endl;
+    }
+
     for(int i=2; i<=n; i++) {
         if(i==primes.at(i)) {
             cout<<primes.at(i)<<" ";
