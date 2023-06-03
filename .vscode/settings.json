@@ -13,6 +13,9 @@
         "iosfwd": "cpp",
         "string": "cpp",
         "stack": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "string_view": "cpp"
     }
 }
