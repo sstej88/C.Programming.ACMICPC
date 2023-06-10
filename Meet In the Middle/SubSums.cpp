@@ -298,15 +298,6 @@ void subsetsSum(vector<int> &nums, int target) {
     vector<int> rightSubset;
     findSubsetsSum(nums, mid, high, rightSubsetSum, rightSubset, 0, rightSubsets);
 
-    for(auto x: leftSubsetsSum) {
-        cout<<x<<" ";
-    }
-    cout<<endl<<endl;
-    for(auto x: rightSubsetSum) {
-        cout<<x<<" ";
-    }
-    cout<<endl<<endl;
-
     int count = 0;
     unordered_map<int, int> ump1;
     unordered_map<int, int> ump2;
