@@ -337,25 +337,9 @@ void mergeSort(vector<int> &nums, int low, int high) {
 }
 
 vector<int> solve() {
-    int n, e;
     vector<int> nums;
 
-    cin>>n;
-    while(n--) {
-        cin>>e;
-        nums.push_back(e);
-    }
-
-    segmentTree st;
-    st.initializeTree(nums);
-    st.display();
-    cout<<st.query(2, 5)<<endl;
-    cout<<st.query(3, 4)<<endl;
     
-    int index = 3;
-    int value = 10;
-    st.updateLeafNode(index, value);
-    st.display();
 
     return nums;
 }
