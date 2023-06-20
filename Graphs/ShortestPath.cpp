@@ -474,6 +474,31 @@ class Graph {
         }
         cout<<node<<" ";
     }
+
+    unordered_map<int, int> shortestDistance;
+    void bfsShortestPath(queue<int> &q, int distance) {
+        if(visited.size()==numberOfNodes) {
+            ++distance;
+            while(!q.empty()) {
+                cout<<q.front()<<" --- "<<distance<<endl;
+                q.pop();
+            }
+            return;
+        }
+        visited[q.front()] = true;
+        shortestDistance[q.front()] = min(distance, shortestDistance.count(q.front())==0?INT_MAX:shortestDistance[q.front()]);
+        ++distance;
+        for(auto x: l[q.front()]) {
+            if(visited.count(x)==0) {
+                q.push(x);
+                visited[x] = true;
+                shortestDistance[x] = min(distance, shortestDistance.count(x)==0?INT_MAX:shortestDistance[x]);
+            }
+        }
+        cout<<q.front()<<" --- "<<distance<<endl;
+        q.pop();
+        bfsShortestPath(q, shortestDistance[q.front()]);
+    }
 };
 
 vector<int> solve() {
@@ -482,6 +507,7 @@ vector<int> solve() {
     Graph g(10);
     g.addEdge(0,1);
     g.addEdge(0,2);
+    g.addEdge(0,4);
     g.addEdge(1,3);
     g.addEdge(1,4);
     g.addEdge(3,5);
@@ -500,6 +526,11 @@ vector<int> solve() {
     g.visited.clear();
 
     g.dfs(0);
+
+    cout<<endl;
+    g.visited.clear();
+    q.push(0);
+    g.bfsShortestPath(q, 0);
 
     return nums;
 }
