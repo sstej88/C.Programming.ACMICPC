@@ -1,8 +1,5 @@
-0x16d38f1b8
-0 -> 1 4 
-1 -> 0 2 
-2 -> 1 3 
-3 -> 4 2 5 
-4 -> 0 3 5 
-5 -> 4 3 
-
+Paris -> New York 
+New York -> London 
+London -> 
+Delhi -> London Paris 
+Delhi London Paris New York 
