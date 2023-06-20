@@ -475,7 +475,8 @@ class Graph {
         cout<<node<<" ";
     }
 
-    void bfsShortestPath(queue<int> &q, unordered_map<int, int> &distance) {
+    unordered_map<int, int> rootNode;
+    void bfsShortestPath(queue<int> &q, unordered_map<int, int> &distance, int destination) {
         if(visited.size()==numberOfNodes) {
             return;
         }
@@ -483,13 +484,23 @@ class Graph {
         visited[node] = true;
         for(auto x: l[node]) {
             if(visited.count(x)==0) {
+                rootNode[x] = node;
                 q.push(x);
                 distance[x] = distance[node]+1;
                 visited[x] = true;
             }
         }
         q.pop();
-        bfsShortestPath(q, distance);
+        bfsShortestPath(q, distance, destination);
+    }
+
+    void displayShortestPath(int node) {
+        if(node==0) {
+            cout<<0<<endl;
+            return;
+        }
+        cout<<node<<" ";
+        displayShortestPath(rootNode[node]);
     }
 };
 
@@ -512,10 +523,12 @@ vector<int> solve() {
     unordered_map<int, int> distance;
     q.push(0);
     distance[0] = 0;
-    g.bfsShortestPath(q, distance);
+    g.bfsShortestPath(q, distance, 8);
     for(auto x: distance) {
         cout<<x.first<<" - "<<x.second<<endl;
     }
+
+    g.displayShortestPath(5);
 
     return nums;
 }
