@@ -479,7 +479,27 @@ class Graph {
 vector<int> solve() {
     vector<int> nums;
 
+    Graph g(10);
+    g.addEdge(0,1);
+    g.addEdge(0,2);
+    g.addEdge(1,3);
+    g.addEdge(1,4);
+    g.addEdge(3,5);
+    g.addEdge(4,6);
+    g.addEdge(2,7);
+    g.addEdge(2,8);
+    g.addEdge(8,9);
+
+    g.displayGraph();
     
+    queue<int> q;
+    q.push(0);
+    g.bfs(q);
+    cout<<endl;
+
+    g.visited.clear();
+
+    g.dfs(0);
 
     return nums;
 }
