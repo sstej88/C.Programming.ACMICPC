@@ -547,12 +547,12 @@ vector<int> solve() {
         cout<<d.rank[i]<<" ";
     }
     cout<<endl;
-    d.addEdge(2, 3);
+    d.addEdge(3, 4);
     for(int i=1; i<d.numberOfNodes; i++) {
         cout<<d.rank[i]<<" ";
     }
     cout<<endl;
-    d.addEdge(3, 4);
+    d.addEdge(2, 3);
     for(int i=1; i<d.numberOfNodes; i++) {
         cout<<d.rank[i]<<" ";
     }
@@ -563,6 +563,11 @@ vector<int> solve() {
     }
     cout<<endl;
     d.addEdge(5, 1);
+    for(int i=1; i<d.numberOfNodes; i++) {
+        cout<<d.rank[i]<<" ";
+    }
+    cout<<endl;
+    d.addEdge(6, 3);
     for(int i=1; i<d.numberOfNodes; i++) {
         cout<<d.rank[i]<<" ";
     }
