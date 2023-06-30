@@ -538,47 +538,45 @@ class DSU {
 
 class MSTGraph {
     public:
-    list< pair<int, int> > *graph;
     int numberOfNodes;
+    list< pair<int, int> > *l;
 
     MSTGraph(int n) {
         this->numberOfNodes = n;
-        graph = new list< pair<int, int> >[numberOfNodes];
+        l = new list< pair<int, int> >[numberOfNodes];
     }
 
     void addEdge(int i, int j, int weight) {
-        graph[i].push_back(make_pair(weight, j));
-        graph[j].push_back(make_pair(weight, i));
+        l[i].push_back(make_pair(weight, j));
+        l[j].push_back(make_pair(weight, i));
     }
 
-    void displayGraph() {
-        for(int i=0; i<numberOfNodes; i++) {
-            for(auto x: graph[i]) {
-                cout<<i<<" - "<<x.first<<" = "<<x.second<<endl;
-            }
-            cout<<endl;
-        }
-    }
-
-    priority_queue< pair<int, int>, vector< pair<int, int> >, greater< pair<int, int> > > activeEdges;
     unordered_map<int, bool> visited;
-    void primsMST(int node) {
+    priority_queue<pair<int, int>, vector< pair<int, int> >, greater< pair<int, int> > > pq;
+    unordered_map<int, bool> isMSTIncluded;
+    int minimumSpanningWeight = 0;
+
+    void prims(int i) {
         if(visited.size()==numberOfNodes) {
             return;
         }
-        visited[node] = true;
-        for(auto x: graph[node]) {
+
+        visited[i] = true;
+        for(auto x: l[i]) {
             if(visited.count(x.second)==0) {
-                activeEdges.push(x);
+                pq.push(x);
             }
         }
-        int selectedEdge = activeEdges.top().first;
-        int nextActiveNode = activeEdges.top().second;
-        activeEdges.pop();
-        cout<<selectedEdge<<" - "<<nextActiveNode<<endl;
-        primsMST(nextActiveNode);
-    }
 
+        pair<int, int> nextVisitingEdge = pq.top();
+        if(isMSTIncluded.count(nextVisitingEdge.second)==0) {
+            cout<<pq.top().second<<" = "<<pq.top().first<<endl;
+            minimumSpanningWeight += pq.top().first;
+        }
+        isMSTIncluded[nextVisitingEdge.second] = true;
+        pq.pop();
+        prims(nextVisitingEdge.second);
+    }
 };
 
 vector<int> solve() {
@@ -608,7 +606,9 @@ vector<int> solve() {
 
     g.addEdge(7, 8, 7);
 
-    g.primsMST(0);
+    g.isMSTIncluded[0] = true;
+    g.prims(0);
+    cout<<g.minimumSpanningWeight<<endl;
 
     return nums;
 }
