@@ -543,7 +543,6 @@ int knapsack(vector< pair<int, int> > v, int weight) {
             weight = weight-v.at(i).second;
             value += v.at(i).first;
         }
-        cout<<value<<endl;
     }
     return value;
 }
