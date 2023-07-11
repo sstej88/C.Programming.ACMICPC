@@ -576,11 +576,8 @@ bool searchTrie(string s) {
 
 class Solution {
 public:
-    string longestPalindrome(string s) {
+    int countSubstrings(string s) {
         int n = s.size();
-        int max = 0;
-        int l = 0;
-        int h = 0;
         vector< vector<bool> > map( n, vector<bool> (n, false) );
         for(int i=0; i<n; i++) {
             map[i][i] = true;
@@ -593,21 +590,16 @@ public:
                 if(i+1<=i+j-1) {
                     map.at(i).at(i+j) = map.at(i).at(j+i)&&map.at(i+1).at(i+j-1);
                 }
-                if(map.at(i).at(i+j)==true) {
-                    if(i+j-i+1>max) {
-                        l = i;
-                        h = i+j;
-                    }
-                }
             }
         }
-        cout<<l<<" "<<h<<endl;
-        string result = "";
-        for(int i=l; i<=h; i++) {
-            result+=s.at(i);
+
+        int count = 0;
+        for(auto x: map) {
+            for(auto y: x) {
+                if(y==1) count++;
+            }
         }
-        cout<<result<<endl;
-        return result;
+        return count;
     }
 };
 
